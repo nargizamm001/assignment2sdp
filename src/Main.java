@@ -1,4 +1,5 @@
 // Main.java
+// Client code that uses the Factory Method pattern
 public class Main {
     public static void main(String[] args) {
 

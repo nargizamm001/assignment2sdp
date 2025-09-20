@@ -1,9 +1,12 @@
-// Product interface
+// Burger.java
+// Example of Factory Method Pattern with burgers
+
+// Product interface (common contract for all burgers)
 public interface Burger {
     void prepare();
 }
 
-// Concrete product 1
+// Concrete product 1 (specific burger type)
 class CheeseBurger implements Burger {
     @Override
     public void prepare() {
@@ -11,7 +14,7 @@ class CheeseBurger implements Burger {
     }
 }
 
-// Concrete product 2
+// Concrete product 2 (another burger type)
 class VeggieBurger implements Burger {
     @Override
     public void prepare() {
@@ -19,7 +22,7 @@ class VeggieBurger implements Burger {
     }
 }
 
-// Concrete product 3
+// Concrete product 3 (another burger type)
 class ChickenBurger implements Burger {
     @Override
     public void prepare() {
@@ -27,13 +30,13 @@ class ChickenBurger implements Burger {
     }
 }
 
-// Abstract Creator
+// Abstract Creator (defines factory method to create burgers)
 abstract class BurgerRestaurant {
 
-    // Factory Method
+    // Factory Method (subclasses decide what burger to create)
     protected abstract Burger createBurger();
 
-    // Uses factory method
+    // High-level logic (uses the created burger)
     public void orderBurger() {
         Burger burger = createBurger();
         burger.prepare();
@@ -41,7 +44,7 @@ abstract class BurgerRestaurant {
     }
 }
 
-// Concrete Creator 1
+// Concrete Creator 1 (creates CheeseBurger)
 class CheeseBurgerRestaurant extends BurgerRestaurant {
     @Override
     protected Burger createBurger() {
@@ -49,7 +52,7 @@ class CheeseBurgerRestaurant extends BurgerRestaurant {
     }
 }
 
-// Concrete Creator 2
+// Concrete Creator 2 (creates VeggieBurger)
 class VeggieBurgerRestaurant extends BurgerRestaurant {
     @Override
     protected Burger createBurger() {
@@ -57,7 +60,7 @@ class VeggieBurgerRestaurant extends BurgerRestaurant {
     }
 }
 
-// Concrete Creator 3
+// Concrete Creator 3 (creates ChickenBurger)
 class ChickenBurgerRestaurant extends BurgerRestaurant {
     @Override
     protected Burger createBurger() {
